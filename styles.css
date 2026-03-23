@@ -223,17 +223,19 @@ body {
 }
 
 .answer-btn.correct {
-    background: rgba(0, 150, 60, 0.8);
-    border-color: #00ff66;
-    color: white;
-    box-shadow: 0 0 15px rgba(0, 255, 100, 0.3);
+    background: #00f2ea;
+    border-color: #00f2ea;
+    color: black;
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(0, 242, 234, 0.5);
 }
 
 .answer-btn.incorrect {
-    background: rgba(220, 20, 60, 0.8);
-    border-color: #ff3333;
+    background: #FE2C55;
+    border-color: #FE2C55;
     color: white;
-    box-shadow: 0 0 15px rgba(255, 50, 50, 0.3);
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(254, 44, 85, 0.5);
 }
 
 .answer-btn:disabled {
@@ -241,55 +243,41 @@ body {
     opacity: 0.9;
 }
 
-/* Feedback Overlay */
-.overlay {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.85);
+/* Inline Feedback */
+.inline-feedback {
+    width: calc(100% - 4rem);
+    margin: 0 auto 1rem auto;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    opacity: 1;
+    transition: all 0.3s ease;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 100;
+}
+
+.inline-feedback.hidden {
     opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    backdrop-filter: blur(5px);
-}
-.overlay.show {
-    opacity: 1;
-}
-
-#feedback-text {
-    font-size: 2.2rem;
-    font-weight: 800;
-    text-align: center;
-    text-transform: uppercase;
-    padding: 0 1rem;
-    line-height: 1.4;
+    height: 0;
+    padding: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+    border: none;
 }
 
-.text-success {
-    color: #00ff66;
-    text-shadow: 0 0 20px #00ff66, 0 0 40px #00ff66;
-    animation: shake 0.5s ease-in-out;
+.feedback-success {
+    color: #00f2ea;
+    background: rgba(0, 242, 234, 0.1);
+    border: 1px solid rgba(0, 242, 234, 0.3);
 }
 
-.text-error {
-    color: #ff3333;
-    text-shadow: 0 0 20px #ff3333;
-    animation: fadeOutDown 1.2s ease-out forwards;
-}
-
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    20%, 60% { transform: translateX(-10px) rotate(-5deg); }
-    40%, 80% { transform: translateX(10px) rotate(5deg); }
-}
-
-@keyframes fadeOutDown {
-    0% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 0; transform: translateY(20px); }
+.feedback-error {
+    color: #FE2C55;
+    background: rgba(254, 44, 85, 0.1);
+    border: 1px solid rgba(254, 44, 85, 0.3);
 }
 
 /* Fade in elements */

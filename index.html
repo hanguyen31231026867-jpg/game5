@@ -9,9 +9,6 @@
 </head>
 <body>
     <div class="game-container">
-        <div id="feedback-overlay" class="overlay">
-            <h2 id="feedback-text"></h2>
-        </div>
         <!-- Start Screen -->
         <div id="start-screen" class="screen active">
             <div class="glitch" data-text="TikTok Rising Star">TikTok Rising Star</div>
@@ -31,6 +28,8 @@
                 <div class="progress">Câu <span id="current-question-num">1</span>/16</div>
             </div>
             
+            <div id="inline-feedback" class="inline-feedback hidden"></div>
+
             <div class="question-container">
                 <h2 id="question-text">Câu hỏi sẽ hiện ở đây</h2>
             </div>

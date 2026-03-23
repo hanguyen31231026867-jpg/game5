@@ -180,8 +180,7 @@ const viewsDisplay = document.getElementById('views');
 const questionNumDisplay = document.getElementById('current-question-num');
 const questionText = document.getElementById('question-text');
 const answersContainer = document.getElementById('answers-container');
-const feedbackOverlay = document.getElementById('feedback-overlay');
-const feedbackText = document.getElementById('feedback-text');
+const inlineFeedback = document.getElementById('inline-feedback');
 const timerText = document.getElementById('timer-text');
 const timerBar = document.getElementById('timer-bar');
 const questionContainer = document.querySelector('.question-container');
@@ -221,6 +220,9 @@ function loadQuestion() {
     clearInterval(timerInterval);
     timeLeft = 15;
     updateTimerUI();
+    
+    inlineFeedback.className = 'inline-feedback hidden';
+    inlineFeedback.innerText = '';
     
     // Add fade-in effect
     questionContainer.classList.remove('fade-in-content');
@@ -280,7 +282,7 @@ function handleTimeout() {
         } else {
             showResult();
         }
-    }, 1500);
+    }, 3000);
 }
 
 function handleAnswer(selectedIndex, btnElement) {
@@ -306,7 +308,7 @@ function handleAnswer(selectedIndex, btnElement) {
     
     updateScoreBoard();
 
-    // Next question delay (1.5s)
+    // Next question delay (3s)
     setTimeout(() => {
         currentQuestionIndex++;
         if (currentQuestionIndex < questions.length) {
@@ -314,28 +316,23 @@ function handleAnswer(selectedIndex, btnElement) {
         } else {
             showResult();
         }
-    }, 1500);
+    }, 3000);
 }
 
 function showFeedback(isCorrect, isTimeout = false) {
-    feedbackOverlay.classList.add('show');
-    feedbackText.className = ''; // clear classes
+    inlineFeedback.className = 'inline-feedback'; // remove hidden
 
     if (isCorrect) {
-        feedbackText.innerText = 'XU HƯỚNG!\n+1000 views';
-        feedbackText.classList.add('text-success');
+        inlineFeedback.innerText = '✅ XU HƯỚNG! +1000 views';
+        inlineFeedback.classList.add('feedback-success');
     } else {
         if (isTimeout) {
-            feedbackText.innerText = 'KẸT VIEW!\nThử lại nhé';
+            inlineFeedback.innerText = '❌ KẸT VIEW! Hãy chú ý kỹ thuật này';
         } else {
-            feedbackText.innerText = 'KẸT VIEW!\nThử lại nhé';
+            inlineFeedback.innerText = '❌ KẸT VIEW! Hãy chú ý kỹ thuật này';
         }
-        feedbackText.classList.add('text-error');
+        inlineFeedback.classList.add('feedback-error');
     }
-
-    setTimeout(() => {
-        feedbackOverlay.classList.remove('show');
-    }, 1200);
 }
 
 function showResult() {
