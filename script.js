@@ -1,20 +1,20 @@
 const questions = [
-    { question: "Câu 1. Sự khác biệt cốt lõi của Social Selling là gì?", answers: ["A. Tập trung quảng cáo trả phí", "B. Chào bán trực tiếp", "C. Xây dựng giá trị & niềm tin trước khi bán", "D. Loại bỏ tư vấn"], correct: 2 },
-    { question: "Câu 2. Insight chuyển đổi gồm:", answers: ["A. Trend – Music – Visual", "B. Pain – Fear – Trigger", "C. Age – Gender – Location", "D. View – Like – Share"], correct: 1 },
-    { question: "Câu 3. Vì sao video phải “đúng ngay từ đầu”?", answers: ["A. Do chi phí cao", "B. Người xem quyết định trong 1–3 giây", "C. TikTok chỉ xét 3 giây đầu", "D. Video sẽ bị xóa"], correct: 1 },
-    { question: "Câu 4. Công thức video đúng là:", answers: ["A. Trend – Nhạc – Link", "B. Hook – Problem – Solution – Proof – CTA", "C. Intro – Giá – Mua", "D. Story – Joke – End"], correct: 1 },
+    { question: "Câu 1. Sự khác biệt cốt lõi của Social Selling là gì?", answers: ["A. Xây dựng giá trị & niềm tin trước khi bán", "B. Tập trung quảng cáo trả phí", "C. Chào bán trực tiếp", "D. Loại bỏ tư vấn"], correct: 0 },
+    { question: "Câu 2. Insight chuyển đổi gồm:", answers: ["A. Trend – Music – Visual", "B. View – Like – Share", "C. Age – Gender – Location", "D. Pain – Fear – Trigger"], correct: 3 },
+    { question: "Câu 3. Vì sao video phải “đúng ngay từ đầu”?", answers: ["A. Người xem quyết định trong 1–3 giây", "B. TikTok chỉ xét 3 giây đầu", "C. Do chi phí cao", "D. Video sẽ bị xóa"], correct: 0 },
+    { question: "Câu 4. Công thức video đúng là:", answers: ["A. Story – Joke – End", "B. Intro – Giá – Mua", "C. Hook – Problem – Solution – Proof – CTA", "D. Trend – Nhạc – Link"], correct: 2 },
     { question: "Câu 5. Vai trò chính của Proof là:", answers: ["A. Làm đẹp video", "B. Tăng thời lượng", "C. Tạo hiệu ứng", "D. Xây dựng niềm tin"], correct: 3 },
-    { question: "Câu 6. Phong cách giao tiếp hiệu quả là:", answers: ["A. Quảng cáo chuyên nghiệp", "B. Tư vấn tự nhiên, gần gũi", "C. Dùng thuật ngữ khó", "D. Không nói"], correct: 1 },
-    { question: "Câu 7. Thuật toán TikTok ưu tiên:", answers: ["A. Follower", "B. Completion rate & tương tác", "C. Video cũ", "D. Ads"], correct: 1 },
-    { question: "Câu 8. Hành vi dễ bị ban:", answers: ["A. Video ngắn", "B. Sử dụng hình ảnh “before/after” để quảng cáo sản phẩm nhiều lần trên TikTok Shop", "C. Không rep comment", "D. Dùng nhạc"], correct: 1 },
+    { question: "Câu 6. Phong cách giao tiếp hiệu quả là:", answers: ["A. Tư vấn tự nhiên, gần gũi", "B. Quảng cáo chuyên nghiệp", "C. Dùng thuật ngữ khó", "D. Không nói"], correct: 0 },
+    { question: "Câu 7. Thuật toán TikTok ưu tiên:", answers: ["A. Video cũ", "B. Ads", "C. Follower", "D. Completion rate & tương tác"], correct: 3 },
+    { question: "Câu 8. Hành vi dễ bị ban:", answers: ["A. Video ngắn", "B. Dùng nhạc", "C. Sử dụng hình ảnh “before/after” để quảng cáo sản phẩm nhiều lần trên TikTok Shop", "D. Không rep comment"], correct: 2 },
     { question: "Câu 9. Vai trò của phụ đề là gì?", answers: ["A. Bắt buộc pháp lý", "B. Tăng chất lượng 4K", "C. Che lỗi", "D. Tăng khả năng hiểu & xem không cần âm thanh"], correct: 3 },
-    { question: "Câu 10. Cách tăng click bio link:", answers: ["A. Spam link", "B. Không nhắc", "C. CTA rõ ràng + kích thích tò mò", "D. Bắt tự tìm"], correct: 2 },
-    { question: "Câu 11. Khách nói: “Sợ mua về không hiệu quả”. Insight đúng là:", answers: ["A. Pain: thiếu tiền", "B. Fear: không hiệu quả, cần proof", "C. Trigger: giảm giá", "D. Pain: không biết mua"], correct: 1 },
-    { question: "Câu 12. Hook nào hiệu quả nhất?", answers: ["A. “Sản phẩm này rất tốt”", "B. “Bạn có gặp vấn đề không?”", "C. “90% người đang sai ở bước này…”", "D. “Hôm nay review…”"], correct: 2 },
-    { question: "Câu 13. Video nhiều view nhưng không có đơn, nguyên nhân chính là gì?", answers: ["A. Thiếu follower", "B. Không xử lý fear", "C. Video ngắn", "D. Không ads"], correct: 1 },
-    { question: "Câu 14. CTA nào hiệu quả nhất?", answers: ["A. Link bio", "B. Mua ngay", "C. Comment “TƯ VẤN” để được hỗ trợ", "D. Xem thêm"], correct: 2 },
-    { question: "Câu 15. Đâu là proof tốt nhất?", answers: ["A. Hiệu ứng đẹp", "B. Nhạc hay", "C. Feedback khách hàng thật", "D. Filter"], correct: 2 },
-    { question: "Câu 16. Video bị “kẹt view” thường do:", answers: ["A. Thiếu follower", "B. Completion rate thấp", "C. Không chạy ads", "D. Caption ngắn"], correct: 1 }
+    { question: "Câu 10. Cách tăng click bio link:", answers: ["A. Spam link", "B. CTA rõ ràng + kích thích tò mò", "C. Không nhắc", "D. Bắt tự tìm"], correct: 1 },
+    { question: "Câu 11. Khách nói: “Sợ mua về không hiệu quả”. Insight đúng là:", answers: ["A. Fear: không hiệu quả, cần proof", "B. Pain: thiếu tiền", "C. Trigger: giảm giá", "D. Pain: không biết mua"], correct: 0 },
+    { question: "Câu 12. Hook nào hiệu quả nhất?", answers: ["A. “Sản phẩm này rất tốt”", "B. “Bạn có gặp vấn đề không?”", "C. “Hôm nay review…”", "D. “90% người đang sai ở bước này…”"], correct: 3 },
+    { question: "Câu 13. Video nhiều view nhưng không có đơn, nguyên nhân chính là gì?", answers: ["A. Thiếu follower", "B. Video ngắn", "C. Không xử lý fear", "D. Không ads"], correct: 2 },
+    { question: "Câu 14. CTA nào hiệu quả nhất?", answers: ["A. Link bio", "B. Comment “TƯ VẤN” để được hỗ trợ", "C. Mua ngay", "D. Xem thêm"], correct: 1 },
+    { question: "Câu 15. Đâu là proof tốt nhất?", answers: ["A. Hiệu ứng đẹp", "B. Feedback khách hàng thật", "C. Nhạc hay", "D. Filter"], correct: 1 },
+    { question: "Câu 16. Video bị “kẹt view” thường do:", answers: ["A. Thiếu follower", "B. Không chạy ads", "C. Completion rate thấp", "D. Caption ngắn"], correct: 2 }
 ];
 
 let currentQuestionIndex = 0;
@@ -175,7 +175,7 @@ function showFeedback(isCorrect, isTimeout = false) {
     feedbackText.className = '';
 
     if (isCorrect) {
-        feedbackText.innerText = '✨ 10 ĐIỂM KHÔNG CÓ NHƯNG!';
+        feedbackText.innerText = 'Good job! +1000 views';
         feedbackText.classList.add('text-success');
     } else {
         feedbackText.innerText = '💀 CỐ LÊN BẠN ÊI!';
