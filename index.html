@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Rising Star</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen active">
+            <div class="glitch" data-text="TikTok Rising Star">TikTok Rising Star</div>
+            <p class="subtitle">Trở thành Master Social Selling</p>
+            <button id="start-btn" class="tiktok-btn">Bắt đầu xây kênh</button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen">
+            <div class="header">
+                <div class="timer-text" id="timer-text">15s</div>
+                <div class="progress">Câu <span id="current-question-num">1</span>/16</div>
+            </div>
+            <div class="timer-row">
+                <div class="score-board">👀 <span id="views">0</span></div>
+                <div class="timer-container">
+                    <div id="timer-bar"></div>
+                </div>
+            </div>
+            
+            <div class="question-container">
+                <h2 id="question-text">Câu hỏi sẽ hiện ở đây</h2>
+            </div>
+            
+            <div id="answers-container" class="answers-grid">
+                <!-- Answers will be injected here -->
+            </div>
+
+            <div id="feedback-toast" class="toast">
+                <!-- Feedback text like Lên xu hướng -->
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="screen">
+            <h2>Hành Trình Kết Thúc!</h2>
+            <div class="final-stats">
+                <p>Tổng Views: <span id="final-views" class="highlight">0</span></p>
+                <p>Số câu đúng: <span id="final-correct" class="highlight">0</span>/16</p>
+            </div>
+            <div class="title-award">
+                <p>Danh hiệu của bạn:</p>
+                <h1 id="player-title" class="glitch-small">Danh hiệu</h1>
+            </div>
+            <button id="restart-btn" class="tiktok-btn">Chơi lại</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
