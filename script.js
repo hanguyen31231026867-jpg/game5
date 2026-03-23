@@ -323,14 +323,10 @@ function showFeedback(isCorrect, isTimeout = false) {
     inlineFeedback.className = 'inline-feedback'; // remove hidden
 
     if (isCorrect) {
-        inlineFeedback.innerText = '✅ XU HƯỚNG! +1000 views';
+        inlineFeedback.innerText = '🚀 LÊN XU HƯỚNG! +1000 Views';
         inlineFeedback.classList.add('feedback-success');
     } else {
-        if (isTimeout) {
-            inlineFeedback.innerText = '❌ KẸT VIEW! Hãy chú ý kỹ thuật này';
-        } else {
-            inlineFeedback.innerText = '❌ KẸT VIEW! Hãy chú ý kỹ thuật này';
-        }
+        inlineFeedback.innerText = '⚠️ "FLOP" RỒI! Cố lên bạn êi';
         inlineFeedback.classList.add('feedback-error');
     }
 }
