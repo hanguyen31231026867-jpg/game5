@@ -26,17 +26,19 @@ body {
 }
 
 .game-container {
-    width: 420px;
-    height: 90vh;
-    max-height: 850px;
+    width: 100%;
+    max-width: 420px;
+    min-height: 90vh;
+    height: auto;
     background: #0a0a0a;
     position: relative;
     box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 20px rgba(0,255,255,0.2), 0 0 20px rgba(255,0,80,0.2);
     border: 1px solid #333;
-    border-radius: 20px;
+    border-radius: 30px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    margin: 20px auto;
 }
 
 .screen {
@@ -125,11 +127,8 @@ body {
     padding-bottom: 1rem;
     border-bottom: 2px solid #333;
     margin-bottom: 2rem;
-    position: absolute;
-    top: 2rem;
-    left: 0;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    position: relative;
+    padding: 1.5rem 0.5rem 0 0.5rem;
 }
 
 .score-board {
@@ -151,22 +150,14 @@ body {
     text-shadow: 0 0 8px rgba(255, 0, 80, 0.6);
 }
 
-.timer-row {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 0 2rem;
+.timer-container-top {
     position: absolute;
-    top: 5.5rem;
+    top: 0;
     left: 0;
-    gap: 15px;
-}
-
-.timer-container {
-    flex-grow: 1;
-    height: 6px;
+    width: 100%;
+    height: 8px;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 3px;
+    z-index: 50;
 }
 
 #timer-bar {
@@ -174,12 +165,11 @@ body {
     height: 100%;
     background: var(--tiktok-pink);
     transition: width 1s linear;
-    border-radius: 3px;
 }
 
 #quiz-screen {
     justify-content: flex-start;
-    padding-top: 7rem;
+    padding-top: 0;
 }
 
 .question-container {
@@ -189,10 +179,9 @@ body {
     border-radius: 12px;
     margin-bottom: 2rem;
     border-left: 4px solid var(--tiktok-pink);
-    min-height: 120px;
+    min-height: 100px;
     display: flex;
     align-items: center;
-    margin-top: 3rem;
 }
 
 #question-text {
@@ -206,11 +195,14 @@ body {
 .answers-grid {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
     width: 100%;
+    padding-bottom: 2rem;
 }
 
 .answer-btn {
+    width: 100%;
+    margin-bottom: 12px;
+    word-wrap: break-word;
     background: var(--btn-bg);
     border: 1px solid #444;
     color: white;
@@ -218,7 +210,7 @@ body {
     font-size: 1.05rem;
     border-radius: 15px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
     text-align: left;
     position: relative;
     line-height: 1.4;
@@ -249,40 +241,64 @@ body {
     opacity: 0.9;
 }
 
-/* Toast Notification */
-.toast {
+/* Feedback Overlay */
+.overlay {
     position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translate(-50%, 20px);
-    background: rgba(0, 0, 0, 0.9);
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    font-weight: 800;
-    font-size: 1.1rem;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
     opacity: 0;
     pointer-events: none;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-    z-index: 10;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(5px);
 }
-
-.toast.show {
+.overlay.show {
     opacity: 1;
-    transform: translate(-50%, 0);
-    animation: popUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.toast.success {
-    color: var(--tiktok-cyan);
-    border: 2px solid var(--tiktok-cyan);
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+#feedback-text {
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0 1rem;
+    line-height: 1.4;
 }
 
-.toast.error {
-    color: var(--tiktok-pink);
-    border: 2px solid var(--tiktok-pink);
-    box-shadow: 0 0 15px rgba(255, 0, 80, 0.4);
+.text-success {
+    color: #00ff66;
+    text-shadow: 0 0 20px #00ff66, 0 0 40px #00ff66;
+    animation: shake 0.5s ease-in-out;
+}
+
+.text-error {
+    color: #ff3333;
+    text-shadow: 0 0 20px #ff3333;
+    animation: fadeOutDown 1.2s ease-out forwards;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px) rotate(-5deg); }
+    40%, 80% { transform: translateX(10px) rotate(5deg); }
+}
+
+@keyframes fadeOutDown {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(20px); }
+}
+
+/* Fade in elements */
+.fade-in-content {
+    animation: fadeInContent 0.5s ease forwards;
+}
+@keyframes fadeInContent {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Result Screen */

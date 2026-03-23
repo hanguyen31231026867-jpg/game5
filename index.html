@@ -9,6 +9,9 @@
 </head>
 <body>
     <div class="game-container">
+        <div id="feedback-overlay" class="overlay">
+            <h2 id="feedback-text"></h2>
+        </div>
         <!-- Start Screen -->
         <div id="start-screen" class="screen active">
             <div class="glitch" data-text="TikTok Rising Star">TikTok Rising Star</div>
@@ -18,15 +21,14 @@
 
         <!-- Quiz Screen -->
         <div id="quiz-screen" class="screen">
+            <div class="timer-container-top">
+                <div id="timer-bar"></div>
+            </div>
+            
             <div class="header">
+                <div class="score-board">👀 <span id="views">0</span></div>
                 <div class="timer-text" id="timer-text">15s</div>
                 <div class="progress">Câu <span id="current-question-num">1</span>/16</div>
-            </div>
-            <div class="timer-row">
-                <div class="score-board">👀 <span id="views">0</span></div>
-                <div class="timer-container">
-                    <div id="timer-bar"></div>
-                </div>
             </div>
             
             <div class="question-container">
@@ -37,9 +39,6 @@
                 <!-- Answers will be injected here -->
             </div>
 
-            <div id="feedback-toast" class="toast">
-                <!-- Feedback text like Lên xu hướng -->
-            </div>
         </div>
 
         <!-- Result Screen -->

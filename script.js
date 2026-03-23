@@ -180,9 +180,11 @@ const viewsDisplay = document.getElementById('views');
 const questionNumDisplay = document.getElementById('current-question-num');
 const questionText = document.getElementById('question-text');
 const answersContainer = document.getElementById('answers-container');
-const feedbackToast = document.getElementById('feedback-toast');
+const feedbackOverlay = document.getElementById('feedback-overlay');
+const feedbackText = document.getElementById('feedback-text');
 const timerText = document.getElementById('timer-text');
 const timerBar = document.getElementById('timer-bar');
+const questionContainer = document.querySelector('.question-container');
 
 const finalViews = document.getElementById('final-views');
 const finalCorrect = document.getElementById('final-correct');
@@ -219,6 +221,13 @@ function loadQuestion() {
     clearInterval(timerInterval);
     timeLeft = 15;
     updateTimerUI();
+    
+    // Add fade-in effect
+    questionContainer.classList.remove('fade-in-content');
+    answersContainer.classList.remove('fade-in-content');
+    void questionContainer.offsetWidth; // trigger reflow
+    questionContainer.classList.add('fade-in-content');
+    answersContainer.classList.add('fade-in-content');
 
     const q = questions[currentQuestionIndex];
     questionNumDisplay.innerText = currentQuestionIndex + 1;
@@ -309,21 +318,23 @@ function handleAnswer(selectedIndex, btnElement) {
 }
 
 function showFeedback(isCorrect, isTimeout = false) {
-    feedbackToast.className = 'toast show';
+    feedbackOverlay.classList.add('show');
+    feedbackText.className = ''; // clear classes
+
     if (isCorrect) {
-        feedbackToast.classList.add('success');
-        feedbackToast.innerText = 'Lên xu hướng! +1000 Views';
+        feedbackText.innerText = 'XU HƯỚNG!\n+1000 views';
+        feedbackText.classList.add('text-success');
     } else {
-        feedbackToast.classList.add('error');
         if (isTimeout) {
-            feedbackToast.innerText = 'Hết thời gian! Video bị kẹt view rồi';
+            feedbackText.innerText = 'KẸT VIEW!\nThử lại nhé';
         } else {
-            feedbackToast.innerText = 'Bị kẹt view rồi!';
+            feedbackText.innerText = 'KẸT VIEW!\nThử lại nhé';
         }
+        feedbackText.classList.add('text-error');
     }
 
     setTimeout(() => {
-        feedbackToast.classList.remove('show');
+        feedbackOverlay.classList.remove('show');
     }, 1200);
 }
 
