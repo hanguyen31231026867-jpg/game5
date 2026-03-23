@@ -28,6 +28,9 @@ const quizScreen = document.getElementById('quiz-screen');
 const resultScreen = document.getElementById('result-screen');
 const startBtn = document.getElementById('start-btn');
 const restartBtn = document.getElementById('restart-btn');
+const confettiCanvas = document.getElementById('confetti-canvas');
+let confettiCtx;
+if(confettiCanvas) confettiCtx = confettiCanvas.getContext('2d');
 const viewsDisplay = document.getElementById('views');
 const questionNumDisplay = document.getElementById('current-question-num');
 const questionText = document.getElementById('question-text');
@@ -185,9 +188,10 @@ function showFeedback(isCorrect, isTimeout = false) {
 
 function showResult() {
     switchScreen(quizScreen, resultScreen);
+    if (!confettiCtx && confettiCanvas) confettiCtx = confettiCanvas.getContext('2d');
     
-    finalViews.innerText = scoreViews;
-    finalCorrect.innerText = correctCount;
+    animateValue(finalViews, 0, scoreViews, 1500);
+    animateValue(finalCorrect, 0, correctCount, 1500);
 
     let title = "";
     if (correctCount >= 15) {
@@ -201,4 +205,70 @@ function showResult() {
     }
     
     playerTitle.innerText = title;
+
+    if (correctCount >= 11) {
+        startConfetti();
+    }
+}
+
+function animateValue(obj, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        obj.innerHTML = Math.floor(progress * (end - start) + start);
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
+}
+
+// Simple Confetti Implementation
+let confettiParticles = [];
+let confettiAnimationId;
+
+function startConfetti() {
+    confettiCanvas.width = resultScreen.offsetWidth || window.innerWidth;
+    confettiCanvas.height = resultScreen.offsetHeight || window.innerHeight;
+    confettiParticles = [];
+    
+    for(let i=0; i<150; i++) {
+        confettiParticles.push({
+            x: Math.random() * confettiCanvas.width,
+            y: Math.random() * confettiCanvas.height - confettiCanvas.height,
+            r: Math.random() * 6 + 4,
+            dx: Math.random() * 4 - 2,
+            dy: Math.random() * 4 + 2,
+            color: Math.random() > 0.5 ? '#FE2C55' : '#25F4EE',
+            tilt: Math.random() * 10 - 10,
+            tiltAngleIncrement: (Math.random() * 0.07) + 0.05,
+            tiltAngle: 0
+        });
+    }
+    
+    if(confettiAnimationId) cancelAnimationFrame(confettiAnimationId);
+    renderConfetti();
+
+    setTimeout(() => {
+        cancelAnimationFrame(confettiAnimationId);
+        confettiCtx.clearRect(0,0, confettiCanvas.width, confettiCanvas.height);
+    }, 3000);
+}
+
+function renderConfetti() {
+    confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+    confettiParticles.forEach((p) => {
+        p.tiltAngle += p.tiltAngleIncrement;
+        p.y += (Math.cos(p.tiltAngle) + p.dy);
+        p.x += Math.sin(p.tiltAngle) * 2;
+
+        confettiCtx.beginPath();
+        confettiCtx.lineWidth = p.r;
+        confettiCtx.strokeStyle = p.color;
+        confettiCtx.moveTo(p.x + p.tilt + p.r, p.y);
+        confettiCtx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r);
+        confettiCtx.stroke();
+    });
+    confettiAnimationId = requestAnimationFrame(renderConfetti);
 }

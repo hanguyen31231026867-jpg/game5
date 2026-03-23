@@ -65,16 +65,32 @@
 
         <!-- Result Screen -->
         <div id="result-screen" class="screen">
-            <h2>Hành Trình Kết Thúc!</h2>
-            <div class="final-stats">
-                <p>Tổng Views: <span id="final-views" class="highlight">0</span></p>
-                <p>Số câu đúng: <span id="final-correct" class="highlight">0</span>/16</p>
+            <canvas id="confetti-canvas"></canvas>
+            <h2 class="result-heading">📊 KẾT QUẢ PHÂN TÍCH KÊNH</h2>
+            
+            <div class="result-layout">
+                <!-- Left: Stats -->
+                <div class="analytics-col">
+                    <div class="stat-card">
+                        <p class="stat-label">Tổng Views Đạt Được</p>
+                        <p class="stat-value highlight">👀 <span id="final-views">0</span></p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Tỷ Lệ Chính Xác</p>
+                        <p class="stat-value highlight">🎯 <span id="final-correct">0</span><span class="stat-total">/16</span></p>
+                    </div>
+                </div>
+
+                <!-- Right: Award -->
+                <div class="award-col">
+                    <p class="award-label">Danh hiệu Creator:</p>
+                    <div class="award-glow-box">
+                        <h1 id="player-title" class="neon-title">Danh hiệu</h1>
+                    </div>
+                </div>
             </div>
-            <div class="title-award">
-                <p>Danh hiệu của bạn:</p>
-                <h1 id="player-title" class="glitch-small">Danh hiệu</h1>
-            </div>
-            <button id="restart-btn" class="tiktok-btn">Chơi lại</button>
+
+            <button id="restart-btn" class="gradient-btn">🔥 XÂY KÊNH LẠI TỪ ĐẦU</button>
         </div>
     </div>
     <script src="script.js"></script>
