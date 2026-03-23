@@ -46,6 +46,14 @@ body {
 }
 .screen.active { display: flex; animation: fadeIn 0.4s ease-out forwards; }
 
+#start-screen {
+    padding: 10px;
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    justify-content: center;
+}
+
 .mobile-hint { color: #888; margin-bottom: 2rem; font-size: 0.95rem; font-style: italic; }
 
 /* Header Row */
@@ -308,4 +316,38 @@ body {
 @media (max-width: 480px) {
     .game-container { border-radius: 0; height: 100vh; max-height: none; border: none; margin: 0; max-width: none;}
     .answers-grid-2x2 { grid-template-columns: 1fr; grid-template-rows: auto; }
+}
+
+/* Landscape / Low-height Mobile */
+@media (max-height: 500px) {
+    #start-screen {
+        justify-content: flex-start;
+        padding: 20px 10px;
+    }
+    .welcome-title {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+    }
+    .welcome-intro {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+    }
+    .welcome-rules {
+        padding: 10px 15px;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    .rule-item {
+        font-size: 1rem;
+        gap: 8px;
+    }
+    .mobile-hint {
+        margin-bottom: 1rem;
+        font-size: 0.85rem;
+    }
+    .pulse-btn {
+        font-size: 1.1rem !important;
+        padding: 0.8rem 1.5rem !important;
+    }
 }
