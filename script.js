@@ -34,7 +34,7 @@ const questionText = document.getElementById('question-text');
 const answersContainer = document.getElementById('answers-container');
 const timerText = document.getElementById('timer-text');
 const timerBar = document.getElementById('timer-bar');
-const feedbackOverlay = document.getElementById('feedback-overlay');
+const bottomBanner = document.getElementById('bottom-banner');
 const feedbackText = document.getElementById('feedback-text');
 const leftPanel = document.querySelector('.left-panel');
 const rightPanel = document.querySelector('.right-panel');
@@ -73,7 +73,7 @@ function loadQuestion() {
     timeLeft = 15;
     updateTimerUI();
     
-    feedbackOverlay.classList.remove('show');
+    bottomBanner.classList.remove('show');
     
     leftPanel.classList.remove('fade-in-content');
     rightPanel.classList.remove('fade-in-content');
@@ -132,7 +132,7 @@ function handleTimeout() {
         } else {
             showResult();
         }
-    }, 3000);
+    }, 4000);
 }
 
 function handleAnswer(selectedIndex, btnElement) {
@@ -163,18 +163,18 @@ function handleAnswer(selectedIndex, btnElement) {
         } else {
             showResult();
         }
-    }, 3000);
+    }, 4000);
 }
 
 function showFeedback(isCorrect, isTimeout = false) {
-    feedbackOverlay.classList.add('show');
+    bottomBanner.classList.add('show');
     feedbackText.className = '';
 
     if (isCorrect) {
         feedbackText.innerText = '✨ 10 ĐIỂM KHÔNG CÓ NHƯNG!';
         feedbackText.classList.add('text-success');
     } else {
-        feedbackText.innerText = '💀 CỨU TUI VỚI!';
+        feedbackText.innerText = '💀 CỐ LÊN BẠN ÊI!';
         feedbackText.classList.add('text-error');
     }
 }
