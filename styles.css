@@ -141,11 +141,13 @@ body {
 }
 
 .answer-btn {
+    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
     background: var(--btn-bg);
     border: 2px solid #333;
     color: white;
-    padding: 1rem;
-    font-size: 1.1rem;
+    padding: 10px 15px;
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -169,17 +171,27 @@ body {
     background: var(--tiktok-cyan); 
     border-color: var(--tiktok-cyan); 
     color: #000; 
-    font-weight: 800; 
     box-shadow: 0 0 20px rgba(37,244,238,0.5); 
     animation: correctPulse 1.5s infinite;
 }
-.answer-btn.incorrect { background: var(--tiktok-pink); border-color: var(--tiktok-pink); color: #fff; font-weight: 700; box-shadow: 0 0 20px rgba(254,44,85,0.5); }
-.answer-btn:disabled { cursor: not-allowed; opacity: 0.9; }
+
+.answer-btn.incorrect { 
+    background: var(--tiktok-pink); 
+    border-color: var(--tiktok-pink); 
+    color: #fff; 
+    box-shadow: 0 0 20px rgba(254,44,85,0.5); 
+}
+
+.answer-btn:disabled { 
+    cursor: not-allowed; 
+    opacity: 0.9; 
+    transform: translateY(0);
+}
 
 @keyframes correctPulse {
-    0% { box-shadow: 0 0 10px rgba(37,244,238,0.5); transform: scale(1); }
-    50% { box-shadow: 0 0 25px rgba(37,244,238,0.9); transform: scale(1.02); }
-    100% { box-shadow: 0 0 10px rgba(37,244,238,0.5); transform: scale(1); }
+    0% { box-shadow: 0 0 10px rgba(37,244,238,0.5); }
+    50% { box-shadow: 0 0 35px rgba(37,244,238,1); }
+    100% { box-shadow: 0 0 10px rgba(37,244,238,0.5); }
 }
 
 /* Bottom Banner */
