@@ -9,35 +9,50 @@
 </head>
 <body>
     <div class="game-container">
+        <!-- Overlay Feedback -->
+        <div id="feedback-overlay" class="overlay">
+            <h2 id="feedback-text"></h2>
+        </div>
+
         <!-- Start Screen -->
         <div id="start-screen" class="screen active">
             <div class="glitch" data-text="TikTok Rising Star">TikTok Rising Star</div>
             <p class="subtitle">Trở thành Master Social Selling</p>
+            <p class="mobile-hint">📱 Vui lòng xoay ngang điện thoại để có trải nghiệm tốt nhất!</p>
             <button id="start-btn" class="tiktok-btn">Bắt đầu xây kênh</button>
         </div>
 
         <!-- Quiz Screen -->
         <div id="quiz-screen" class="screen">
-            <div class="timer-container-top">
-                <div id="timer-bar"></div>
-            </div>
-            
-            <div class="header">
+            <!-- Header Row -->
+            <div class="header-row">
+                <div class="game-title">TikTok Rising Star</div>
+                <div class="timer-wrapper">
+                    <span id="timer-text">15s</span>
+                    <div class="timer-container-inline">
+                        <div id="timer-bar"></div>
+                    </div>
+                </div>
                 <div class="score-board">👀 <span id="views">0</span></div>
-                <div class="timer-text" id="timer-text">15s</div>
-                <div class="progress">Câu <span id="current-question-num">1</span>/16</div>
-            </div>
-            
-            <div id="inline-feedback" class="inline-feedback hidden"></div>
-
-            <div class="question-container">
-                <h2 id="question-text">Câu hỏi sẽ hiện ở đây</h2>
-            </div>
-            
-            <div id="answers-container" class="answers-grid">
-                <!-- Answers will be injected here -->
             </div>
 
+            <!-- Main Layout: 2 Columns -->
+            <div class="main-content">
+                <!-- Left: Question -->
+                <div class="left-panel">
+                    <div class="progress">Câu <span id="current-question-num">1</span>/16</div>
+                    <div class="question-box">
+                        <h2 id="question-text">Câu hỏi sẽ hiện ở đây</h2>
+                    </div>
+                </div>
+
+                <!-- Right: Answers Grid -->
+                <div class="right-panel">
+                    <div id="answers-container" class="answers-grid-2x2">
+                        <!-- Answers injected here -->
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Result Screen -->
