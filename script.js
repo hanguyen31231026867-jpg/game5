@@ -46,8 +46,12 @@ startBtn.addEventListener('click', startGame);
 restartBtn.addEventListener('click', resetGame);
 
 function switchScreen(screenToHide, screenToShow) {
-    screenToHide.classList.remove('active');
-    screenToShow.classList.add('active');
+    screenToHide.classList.add('fade-out');
+    setTimeout(() => {
+        screenToHide.classList.remove('active');
+        screenToHide.classList.remove('fade-out');
+        screenToShow.classList.add('active');
+    }, 400);
 }
 
 function startGame() {
